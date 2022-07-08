@@ -16,6 +16,12 @@
     <div id="overlay">
         <h1>Login</h1>
         
+        @if($errore == 'errore')
+
+        <p class='errore'> Credenziali errate! </p>
+        
+        @endif
+
     <main>
 
         <form name = "login" method="post" action="{{ route ('login') }}">

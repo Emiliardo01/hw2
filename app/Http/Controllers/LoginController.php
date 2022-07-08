@@ -19,9 +19,10 @@ class LoginController extends BaseController{
     if(session('email') != null){
         return redirect('home');
     }else{
-       
-    return view('login')
-    ->with('csrf_token',csrf_token());
+
+        $errore = '';
+
+        return view('login')->with('csrf_token',csrf_token())->with('errore', $errore);
     }
     }
 
@@ -36,8 +37,10 @@ class LoginController extends BaseController{
             return redirect('home');
 
         }else{
+
+            $errore = 'errore';
             
-            return redirect('login')->withInput(); 
+            return view('login')->with('errore', $errore); 
            
         }
        
